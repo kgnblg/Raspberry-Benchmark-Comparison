@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<glslhacker_init
+    demofile="./opengl21-test/demo.xml"
+    tcpip_server="0"
+	window_offset_x="-1"
+	window_offset_y="-1"
+/>

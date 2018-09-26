@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<glsl_hacker>
+	
+  <window name="win3d01" title="Raspberry Pi OpenGL 2.1 Test" 
+          width="400" height="400" x_offset="50" y_offset="50"
+          gl_version_major="2" gl_version_minor="1" />
+          
+          
+  
+  <gpu_program name="toon_prog" >
+    <raw_data_vs><![CDATA[	 
+#version 120
+uniform mat4 gxl3d_ModelViewProjectionMatrix; // Automatically passed by GeeXLab
+uniform mat4 gxl3d_ModelViewMatrix; // Automatically passed by GeeXLab
+uniform vec4 light_position;
+varying vec4 v_normal;
+varying vec4 v_lightdir;
+varying vec4 v_eye;
+void main()
+{
+  gl_Position = gxl3d_ModelViewProjectionMatrix * gl_Vertex;
+  v_normal = gxl3d_ModelViewMatrix  * vec4(gl_Normal.xyz, 0.0);
+  vec4 view_vertex = gxl3d_ModelViewMatrix * gl_Vertex;
+  v_lightdir = light_position - view_vertex;
+  v_eye = -view_vertex;
+}
+  ]]></raw_data_vs>
+    <raw_data_ps><![CDATA[	 
+#version 120
+uniform vec4 color1;
+uniform vec4 color2;
+uniform vec4 color3;
+uniform vec4 color4;
+varying vec4 v_normal;
+varying vec4 v_lightdir;
+varying vec4 v_eye;
+void main()
+{
+	vec4 color;
+  vec3 L = normalize(v_lightdir.xyz);
+  vec3 N = normalize(v_normal.xyz);
+	float intensity = dot(L, N);
+	if (intensity > 0.95)
+		color = color1;
+	else if (intensity > 0.5)
+		color = color2;
+	else if (intensity > 0.25)
+		color = color3;
+	else
+		color = color4;
+	gl_FragColor = color;
+}
+    ]]></raw_data_ps>
+  </gpu_program>
+  
+
+ 
+ 
+<gpu_program name="texture_prog" >
+	<raw_data_vs><![CDATA[	 
+#version 120
+uniform mat4 gxl3d_ModelViewProjectionMatrix; // Automatically passed by GeeXLab
+void main()
+{	
+  gl_Position = gxl3d_ModelViewProjectionMatrix * gl_Vertex;		
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+}
+  ]]></raw_data_vs>
+  
+	<raw_data_ps><![CDATA[	 
+#version 120
+uniform sampler2D tex0;
+void main(void)
+{
+  vec2 uv = gl_TexCoord[0].xy;
+  uv.y *= -1.;
+  vec4 c = texture2D(tex0, uv);
+  gl_FragColor = c;
+}  ]]></raw_data_ps>
+
+</gpu_program>
+ 
+  
+  
+  
+	<script name="init_scene" run_mode="INIT" >
+		<raw_data><![CDATA[	
+    
+    
+--[[
+Load and init the GFX v3 helper library.
+--]]
+local lib_dir = gh_utils.get_scripting_libs_dir() 		
+dofile(lib_dir .. "lua/gfx03.lua")
+    
+gfx.init()   
+gfx.vsync(0) -- unlock framerate!
+gfx.display_common_info(0)
+
+gfx.show_info_quad(0)
+gfx.update_info_quad_size(450, 150)
+
+if (gfx.is_rpi() == 1) then
+  gfx.mouse.show(1)
+end  
+
+
+gfx.set_main_title("Raspberry Pi OpenGL Test")
+  
+    
+       
+
+winW, winH = gfx.window.getsize()
+
+
+-- A perspective camera for the 3D scene (torus + background quad)
+-- The first three params are the position and the last three params are the lookat point.
+camera = gh_camera.create_perspective(0, 30, 70, 0, 0, 0)
+
+
+
+
+camera_ortho = gh_camera.create_ortho(-winW/2, winW/2, -winH/2, winH/2, 1.0, 10.0)
+gh_camera.set_viewport(camera_ortho, 0, 0, winW, winH)
+gh_camera.set_position(camera_ortho, 0, 0, 4)
+
+
+
+
+toon_prog = gh_node.getid("toon_prog")
+texture_prog = gh_node.getid("texture_prog")
+
+
+
+
+--mesh = gh_mesh.create_torus(10, 2, 20)
+mesh = gh_mesh.create_trefoil_knot(10, 100)
+gh_object.set_position(mesh, 0, 0, 0)
+gh_object.set_scale(mesh, 10, 10, 10)
+
+
+quad = gh_mesh.create_quad(300*0.4, 267*0.4)
+
+
+local abs_path = 0
+local PF_U8_RGBA = 3
+tex0 = gh_texture.create_from_file("./Raspi-PGB001-300x267.png", PF_U8_RGBA, abs_path)
+
+
+
+hw_opengl = 1
+
+gpu_name = gh_renderer.get_renderer_model()
+if (gpu_name == "Software Rasterizer") then
+  hw_opengl = 0
+end
+
+opengl_version = gh_renderer.get_api_version()
+gl_version_major = gh_renderer.get_api_version_major()
+
+
+		]]></raw_data>
+	</script> 
+  
+  
+  
+  
+  
+	<script name="terminate_scene" run_mode="TERMINATE" >
+		<raw_data><![CDATA[	
+  
+gfx.terminate()  
+
+		]]></raw_data>
+	</script> 
+  
+
+
+  
+
+	<script name="update_scene" run_mode="FRAME" update_from_file_every_frame="0" filename="frame.lua" />
+
+
+
+
+	
+
+	<script name="resize_scene" run_mode="SIZE" >
+		<raw_data><![CDATA[	
+
+winW, winH = gfx.window.getsize()
+
+gfx.resize(winW, winH)
+
+
+local aspect = 1.333
+if (winH > 0) then
+  aspect = winW / winH
+end  
+gh_camera.update_persp(camera, 60, aspect, 0.1, 1000.0)
+gh_camera.set_viewport(camera, 0, 0, winW, winH)
+
+gh_camera.update_ortho(camera_ortho, -winW/2, winW/2, -winH/2, winH/2, 1.0, 10.0)
+gh_camera.set_viewport(camera_ortho, 0, 0, winW, winH)
+
+		]]></raw_data>
+	</script> 
+  
+</glsl_hacker>
