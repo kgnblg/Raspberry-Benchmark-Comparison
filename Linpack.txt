@@ -1,0 +1,36 @@
+ ########################################################
+
+ Linpack Double Precision Unrolled Benchmark n @ 100
+ Optimisation Opt 3 32 Bit, Wed Sep 26 13:12:14 2018
+
+ Speed      66.26 MFLOPS
+
+ Numeric results were as expected
+
+ ########################################################
+
+
+SYSTEM INFORMATION
+
+From File /proc/cpuinfo
+processor	: 0
+model name	: ARMv6-compatible processor rev 7 (v6l)
+BogoMIPS	: 697.95
+Features	: half thumb fastmult vfp edsp java tls 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xb76
+CPU revision	: 7
+
+Hardware	: BCM2835
+Revision	: 9000c1
+Serial		: 000000002d1fb5be
+ 
+
+From File /proc/version
+Linux version 4.14.69+ (dc4@dc4-XPS13-9333) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1141 Mon Sep 10 15:13:50 BST 2018
+ 
+
+Additional information - 
+

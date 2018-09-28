@@ -1,0 +1,37 @@
+2018:09:26@14:25:48(0000000001) < > GeeXLab v0.9.6.0 (Feb 11 2016@17:47:41)
+2018:09:26@14:25:48(0000000002) < > Cross Platform Lab for Real Time 3D Programming and Demo Coding
+2018:09:26@14:25:48(0000000003) < > (C)2009-2016 Geeks3D (www.geeks3d.com)
+2018:09:26@14:25:48(0000000004) < > GeeXLab is starting up...
+2018:09:26@14:25:48(0000000005) < > [CHECKVERSION] Checking for new version...
+2018:09:26@14:25:48(0000000006) < > Linux (RPi) information:
+2018:09:26@14:25:48(0000000007) < > - sysname: Linux
+2018:09:26@14:25:48(0000000008) < > - release: 4.14.69+
+2018:09:26@14:25:48(0000000009) < > - version: #1141 Mon Sep 10 15:13:50 BST 2018
+2018:09:26@14:25:48(0000000010) < > - machine: armv6l
+2018:09:26@14:25:48(0000000011) < > platform: Linux (RPi) 4.14.69+ 32-bit
+2018:09:26@14:25:48(0000000012) < > Command line: ./OpenGL21_Test 
+2018:09:26@14:25:48(0000000013) < > Plugin search path: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/
+2018:09:26@14:25:48(0000000014) <!> [Plugin manager] unable to load plugin: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxl_python_27_x32.so
+2018:09:26@14:25:48(0000000015) <*> [Plugin manager] dlerror: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxl_python_27_x32.so: cannot open shared object file: No such file or directory
+2018:09:26@14:25:48(0000000016) <*> Unable to load the plugin (plugin_gxl_python_27_x32.so).
+2018:09:26@14:25:48(0000000017) <!> Python 2.7 plugin (plugin_gxl_python_27_x32.so) not loaded.
+2018:09:26@14:25:48(0000000018) <!> Unable to load plugin plugin_gxl_python_27_x32.so
+2018:09:26@14:25:48(0000000019) <!> [Plugin manager] unable to load plugin: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_ffmpeg_x32.so
+2018:09:26@14:25:48(0000000020) <*> [Plugin manager] dlerror: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_ffmpeg_x32.so: cannot open shared object file: No such file or directory
+2018:09:26@14:25:48(0000000021) <!> Unable to load plugin plugin_gxc_ffmpeg_x32.so
+2018:09:26@14:25:48(0000000022) <!> [Plugin manager] unable to load plugin: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_freeimage_x32.so
+2018:09:26@14:25:48(0000000023) <*> [Plugin manager] dlerror: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_freeimage_x32.so: cannot open shared object file: No such file or directory
+2018:09:26@14:25:48(0000000024) <!> Unable to load plugin plugin_gxc_freeimage_x32.so
+2018:09:26@14:25:48(0000000025) <!> [Plugin manager] unable to load plugin: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_anttweakbar_x32.so
+2018:09:26@14:25:48(0000000026) <*> [Plugin manager] dlerror: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_anttweakbar_x32.so: cannot open shared object file: No such file or directory
+2018:09:26@14:25:48(0000000027) <!> Unable to load plugin plugin_gxc_anttweakbar_x32.so
+2018:09:26@14:25:48(0000000028) < > [FreeTypeGL] FreeTypeGL plugin
+2018:09:26@14:25:48(0000000029) <!> [Plugin manager] unable to load plugin: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_heman_x32.so
+2018:09:26@14:25:48(0000000030) <*> [Plugin manager] dlerror: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test//dylibs/plugin_gxc_heman_x32.so: cannot open shared object file: No such file or directory
+2018:09:26@14:25:48(0000000031) <!> Unable to load plugin plugin_gxc_heman_x32.so
+2018:09:26@14:25:48(0000000032) < > App directory: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test/
+2018:09:26@14:25:48(0000000033) < > Scripting libs directory: /home/pi/Desktop/security-v2/RPi-OpenGL-Desktop-Test/libs/
+2018:09:26@14:25:48(0000000034) < > Command line: ./OpenGL21_Test 
+2018:09:26@14:25:48(0000000035) <*> Cannot open X display. Display name=
+2018:09:26@14:25:48(0000000036) < > Stopping GeeXLab...
+2018:09:26@14:25:48(0000000037) < > Exit from GeeXLab.

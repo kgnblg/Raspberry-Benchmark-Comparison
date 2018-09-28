@@ -1,0 +1,43 @@
+
+##############################################
+
+Whetstone Single Precision C Benchmark  Opt 3 32 Bit, Wed Sep 26 13:08:18 2018
+
+
+Loop content                   Result              MFLOPS      MOPS   Seconds
+
+N1 floating point      -1.12475013732910156       144.304               0.056
+N2 floating point      -1.12274742126464844       147.621               0.381
+N3 if then else         1.00000000000000000                 992.567     0.044
+N4 fixed point         12.00000000000000000                 619.035     0.213
+N5 sin,cos etc.         0.49911010265350342                   8.260     4.210
+N6 floating point       0.99999982118606567       125.068               1.803
+N7 assignments          3.00000000000000000                 741.250     0.104
+N8 exp,sqrt etc.        0.75110864639282227                   4.822     3.225
+
+MWIPS                                             416.557              10.035
+
+SYSTEM INFORMATION
+
+From File /proc/cpuinfo
+processor	: 0
+model name	: ARMv6-compatible processor rev 7 (v6l)
+BogoMIPS	: 697.95
+Features	: half thumb fastmult vfp edsp java tls 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xb76
+CPU revision	: 7
+
+Hardware	: BCM2835
+Revision	: 9000c1
+Serial		: 000000002d1fb5be
+ 
+
+From File /proc/version
+Linux version 4.14.69+ (dc4@dc4-XPS13-9333) (gcc version 4.9.3 (crosstool-NG crosstool-ng-1.22.0-88-g8460611)) #1141 Mon Sep 10 15:13:50 BST 2018
+ 
+
+Additional information - 
+

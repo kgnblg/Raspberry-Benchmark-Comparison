@@ -38,3 +38,13 @@ Serial		: 00000000db690cb4
 
 Additional information - 
 
+
+##############################################
+
+ Raspberry Pi OpenGL ES Benchmark 1.2, Wed Sep 26 13:40:38 2018
+
+
+##############################################
+
+ Raspberry Pi OpenGL ES Benchmark 1.2, Wed Sep 26 13:40:49 2018
+
